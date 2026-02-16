@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Daily Spends</string>
+    <string name="title_activity_main">Daily Spends</string>
+    <string name="package_name">com.dailyspends.app</string>
+    <string name="custom_url_scheme">com.dailyspends.app</string>
+</resources>
