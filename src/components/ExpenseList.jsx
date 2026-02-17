@@ -29,7 +29,9 @@ export default function ExpenseList({ getExpensesByDate, getTotalByDate, onDelet
     const expenses = getExpensesByDate(selectedDate);
     const total = getTotalByDate(selectedDate);
 
-    const navigateDate = (dir) => {
+    const navigateDate = (dir, e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const d = new Date(selectedDate + 'T00:00:00');
         d.setDate(d.getDate() + dir);
         setSelectedDate(d.toISOString().split('T')[0]);
@@ -39,7 +41,7 @@ export default function ExpenseList({ getExpensesByDate, getTotalByDate, onDelet
         <div className="expense-list">
             {/* Date nav */}
             <div className="date-nav">
-                <button className="date-nav-btn" onClick={() => navigateDate(-1)}>
+                <button className="date-nav-btn" onClick={(e) => navigateDate(-1, e)}>
                     ‹
                 </button>
                 <div className="date-text">
@@ -52,7 +54,7 @@ export default function ExpenseList({ getExpensesByDate, getTotalByDate, onDelet
                         {formatDateDisplay(selectedDate)}
                     </div>
                 </div>
-                <button className="date-nav-btn" onClick={() => navigateDate(1)}>
+                <button className="date-nav-btn" onClick={(e) => navigateDate(1, e)}>
                     ›
                 </button>
             </div>
